@@ -7,9 +7,9 @@
     //create 3 columns 1)time 2)text content 3)save button
 //WHEN I view the timeblocks for that day
 //THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-    //if selectedDate < currentDate ->past (green)
-    //else if selectedDate = currentDate -> present (orange)
-    //else if selectedDate > currentDate -> future (yellow)
+    //if selectedTime < currentTime ->past (green)
+    //else if selectedTime = currentTime -> present (orange)
+    //else if selectedTime > currentTime -> future (yellow)
 //WHEN I click into a timeblock
     //event handler
 //THEN I can enter an event
@@ -24,3 +24,17 @@
 
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
+var now = moment().hour(); //get current date and time
+var x = document.getElementsByClassName("time");
+var y = document.getElementsByClassName("form-control")
+
+for (i=0; i<x.length; i++){
+    var scheduleHour = parseInt(x[i].innerText.split(":")[0]); //parses a string argument to an integer
+    if (scheduleHour > now){        //future
+        y[i].style.backgroundColor = "yellow";
+    }else if(scheduleHour === now){ //present
+        y[i].style.backgroundColor = "orange";
+    }else if(scheduleHour < now){   //past
+        y[i].style.backgroundColor = "grey";
+    }
+};
