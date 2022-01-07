@@ -38,3 +38,29 @@ for (i=0; i<x.length; i++){
         y[i].style.backgroundColor = "grey";
     }
 };
+//set up local storage
+//get the element in the document w/ class save, text, and btn
+var saveButton = document.getElementById("save");
+var savedText = document.getElementById("saved-text");
+saveButton.addEventListener("click", function(event){
+    event.preventDefault();
+    saveLastText();
+    renderText();
+});
+function saveLastText() {
+    var content = savedText.value;
+    localStorage.setItem("content", JSON.stringify(content));
+}
+function renderText() {
+    var lastText = JSON.parse(localStorage.getItem("content"));
+    if (lastText !== null){
+        document.getElementById("saved-text").innerHTML = lastText.content;
+    }else {
+        return;
+    }
+}
+function init(){
+    renderText();
+}
+init();
+
