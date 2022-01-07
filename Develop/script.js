@@ -23,3 +23,4 @@
 //THEN the saved events persist
 
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
+
