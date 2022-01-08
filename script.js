@@ -53,7 +53,7 @@ for(var i = 0; i < timeArr.length; i++) {
     localStorage.setItem("eventObj", JSON.stringify(eventObj)); //stringfy and set key in localStorage to eventArr array
 }*/
 
-$(document).on("click",".save", function(evt){
+$(document).on("click",".save", function(event){
     var time = $(this).data('time');
     var event = $(this).parent().parent().find('.saved-text').val();
     localStorage.setItem('event', event);
