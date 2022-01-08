@@ -1,13 +1,8 @@
 # Work-Day-Scheduler
 
-This Password Generator project is modified using JavaScript. It allows employees to generate a random password based on five criteria: password length, lowercase characters, uppercase characters, numeric numbers, and special characters. 
-
 
 ## Getting Started
 
-When it runs on a browser, a prompt will be displayed asking the user to make a choice of the password length. The user must choose the length between 8 and 128. If the user chooses less than 8 or greater than 128, an alert will be displayed. Once the length is selected, the program will confirm whether the user wants to include lowercase, uppercase, numeric number, or special characters in the password. 
-
-Before generating a password, this program will check if at least one character is selected. If not, an alert will be displayed to remind the user that at least one character type is needed. A random password will be generated after all criteria are met. 
 
 
 ## Built With

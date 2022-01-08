@@ -50,18 +50,32 @@ myTextBox.addEventListener("change", function(e){
     localStorage.setItem(myEvent, e.target.value)
 });*/
 var eventStr = "event";
-//var eventArr = ["","","","","","","","",""];
+//var eventArr = ["","","","","","","","",""];   event array
 var eventObj ={
-    "09:00":"event1",
-    "10:00":"event2",
-    "11:00":"event3",
-    "12:00":"event4",
-    "13:00":"event5",
-    "14:00":"event6",
-    "15:00":"event7",
-    "16:00":"event8",
-    "17:00":"event9",
+    "09:00":"",
+    "10:00":"",
+    "11:00":"",
+    "12:00":"",
+    "13:00":"",
+    "14:00":"",
+    "15:00":"",
+    "16:00":"",
+    "17:00":"",
 }
+
+const timeArr = Object.keys(eventObj);
+const eventArr = Object.values(eventObj);
+const newArr = []
+
+for(var i = 0; i < timeArr.length; i++) {
+    let item = {};
+    item[timeArr[i]] = eventArr[i];
+    newArr.push(item);
+}
+console.log(newArr);
+console.log(timeArr);
+console.log(eventArr);
+// const eventArr = [{"09:00": "event1"},{"10:"}]
 
 function init() {
     var storedEvents = JSON.parse(localStorage.getItem('events'));
@@ -75,23 +89,33 @@ function init() {
 function storeEventItems(){
     localStorage.setItem("eventObj", JSON.stringify(eventObj)); //stringfy and set key in localStorage to eventArr array
 }
+// var toSave = document.getElementsByClassName("save");
+// console.log(toSave);
+// var eventInput = document.getElementsByClassName("saved-text");
+// toSave.addEventListener("click", function(event){
+//     event.preventDefault();
+    
+//     var eventText = eventInput.value.trim();
+//     console.log(eventInput.value);
+//     //return function early if eventText is blank
+//     if (eventText === ""){
+//         return;
+//     }
 
-toSave.addEventListener("click", function(event){
-    event.preventDefault();
-    var eventText = eventInput.value.trim();
+//     //add new eventText to eventArr array, clear the input
+//     //eventStr.push(eventText);
+//     //eventInput.value = "";
 
-    //return function early if eventText is blank
-    if (eventText === ""){
-        return;
-    }
+//     //Store updated events in localStorage, re-render the list
+//     //storeEventItems();
+//     //renderEvents();
+// });
 
-    //add new eventText to eventArr array, clear the input
-    eventStr.push(eventText);
-    eventInput.value = "";
-
-    //Store updated events in localStorage, re-render the list
-    storeEventItems();
-    renderEvents();
+$(document).on("click",".save", function(evt){
+    let time = $(this).data('time');
+    let event = $(this).parent().parent().find('.saved-text').val();
+    console.log(event);
+    localStorage.setItem('example', event);
 })
 
 
