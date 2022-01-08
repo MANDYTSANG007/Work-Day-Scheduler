@@ -39,17 +39,7 @@ for (i=0; i<x.length; i++){
     }
 };
 //set up local storage
-//get the element in the document w/ class save, text, and btn
-/*var saveButton = document.getElementById("save");
-var savedText = document.getElementById("saved-text");
-saveButton.addEventListener("click", function(event){
-    event.preventDefault();
-    saveLastText();
-    renderText();
-});*/
-
-
-var myTextBox = document.querySelector(".form-control");
+/*var myTextBox = document.querySelector(".form-control");
 var myEvent = "keyEvent";
 
 window.addEventListener("load", function(){
@@ -58,4 +48,52 @@ window.addEventListener("load", function(){
 });
 myTextBox.addEventListener("change", function(e){
     localStorage.setItem(myEvent, e.target.value)
-});
+});*/
+var eventStr = "event";
+//var eventArr = ["","","","","","","","",""];
+var eventObj ={
+    "09:00":"event1",
+    "10:00":"event2",
+    "11:00":"event3",
+    "12:00":"event4",
+    "13:00":"event5",
+    "14:00":"event6",
+    "15:00":"event7",
+    "16:00":"event8",
+    "17:00":"event9",
+}
+
+function init() {
+    var storedEvents = JSON.parse(localStorage.getItem('events'));
+
+    if(storeEvents !== null){
+        events = storedEvents;
+    }
+    renderEvents();
+}
+
+function storeEventItems(){
+    localStorage.setItem("eventObj", JSON.stringify(eventObj)); //stringfy and set key in localStorage to eventArr array
+}
+
+toSave.addEventListener("click", function(event){
+    event.preventDefault();
+    var eventText = eventInput.value.trim();
+
+    //return function early if eventText is blank
+    if (eventText === ""){
+        return;
+    }
+
+    //add new eventText to eventArr array, clear the input
+    eventStr.push(eventText);
+    eventInput.value = "";
+
+    //Store updated events in localStorage, re-render the list
+    storeEventItems();
+    renderEvents();
+})
+
+
+//get all the items from local storage (in an array) add that item to the array and then save it
+//use submit button instead of on change.
