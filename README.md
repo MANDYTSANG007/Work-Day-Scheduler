@@ -23,7 +23,7 @@ The Work Day Scheduler displays the current day at the top of the calendar. When
 
 ## Design Layout
 
-![alt text](Scheduler.png)
+![alt text](/develop/Scheduler.png)
 
 ## Authors
 
