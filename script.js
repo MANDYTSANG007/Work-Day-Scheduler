@@ -3,6 +3,8 @@ $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 var now = moment().hour(); //get current date and time
 var x = document.getElementsByClassName("time");
 var y = document.getElementsByClassName("form-control")
+var toDo = $(".to-do");
+var save = $(".save");
 
 for (i=0; i<x.length; i++){
     var scheduleHour = parseInt(x[i].innerText.split(":")[0]); //parses a string argument to an integer
@@ -28,7 +30,7 @@ var eventObj ={
     "17:00":"",
 }
 
-var timeArr = Object.keys(eventObj);
+/*var timeArr = Object.keys(eventObj);
 var eventArr = Object.values(eventObj);
 var newArr = []
 
@@ -36,7 +38,7 @@ for(var i = 0; i < timeArr.length; i++) {
     let item = {};
     item[timeArr[i]] = eventArr[i];
     newArr.push(item);
-}
+}*/
 
 /*
 var storedEvent = localStorage.getItem("events");
@@ -77,8 +79,8 @@ for (i=0; i < save.length; i++){
 }
 
 function saveEvent(e){
-    var selectedHour = toDo[e.currentTarget.dataset.index].id;
-    var saveText = toDo[e.currentTarget.dataset.index].value;
+    var selectedHour = toDo[e.currentTarget.dataset.index];
+    var saveText = toDo[e.currentTarget.dataset.index];
     var result = {
         time: selectedHour,
         text: saveText
@@ -94,8 +96,16 @@ function saveEvent(e){
         savedResults.push(result)
         localStorage.setItem("addWork", JSON.stringify(savedResults))
     }
-    getTodos();
+    getToDos();
 }
+
+function getToDos(){
+    var addWork = JSON.parse(localStorage.getItem("addWork"));
+    addWork.forEach(function(task){
+        $(`#${task.time}`).task(task.text);
+    })
+}
+getToDos();
 
 //Pseudocode
 //GIVEN I am using a daily planner to create a schedule
