@@ -38,6 +38,20 @@ for(var i = 0; i < timeArr.length; i++) {
     newArr.push(item);
 }
 
+
+var storedEvent = localStorage.getItem("events");
+var input = document.getElementsByClassName("input-group");
+
+if (storedEvent){
+    events = JSON.parse(storedEvent);
+}
+
+var addWork = function getElementById(){
+    localStorage.setItem("addWork", JSON.stringify(work));
+}
+
+
+
 /*function init() {
     var storedEvents = JSON.parse(localStorage.getItem('events'));
 
