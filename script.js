@@ -38,7 +38,7 @@ for(var i = 0; i < timeArr.length; i++) {
     newArr.push(item);
 }
 
-
+/*
 var storedEvent = localStorage.getItem("events");
 var input = document.getElementsByClassName("input-group");
 
@@ -50,7 +50,7 @@ var addWork = function getElementById(){
     localStorage.setItem("addWork", JSON.stringify(work));
 }
 
-
+*/
 
 /*function init() {
     var storedEvents = JSON.parse(localStorage.getItem('events'));
@@ -67,11 +67,35 @@ var addWork = function getElementById(){
     localStorage.setItem("eventObj", JSON.stringify(eventObj)); //stringfy and set key in localStorage to eventArr array
 }*/
 
-$(document).on("click",".save", function(event){
+/*$(document).on("click",".save", function(event){
     var time = $(this).data('time');
     var event = $(this).parent().parent().find('.saved-text').val();
     localStorage.setItem('event', event);
-});
+});*/
+for (i=0; i < save.length; i++){
+    $(save[i]).on("click", saveEvent)
+}
+
+function saveEvent(e){
+    var selectedHour = toDo[e.currentTarget.dataset.index].id;
+    var saveText = toDo[e.currentTarget.dataset.index].value;
+    var result = {
+        time: selectedHour,
+        text: saveText
+    }
+
+    var savedResults = JSON.parse(localStorage.getItem("addWork"))
+    if (savedResults){
+        savedResults.push(result);
+        localStorage.setItem("addWork", JSON.stringify(savedResults))
+    }
+    else {
+        savedResults = [];
+        savedResults.push(result)
+        localStorage.setItem("addWork", JSON.stringify(savedResults))
+    }
+    getTodos();
+}
 
 //Pseudocode
 //GIVEN I am using a daily planner to create a schedule
