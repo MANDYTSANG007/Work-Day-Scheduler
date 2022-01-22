@@ -1,26 +1,31 @@
+//Display current date and time
 $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
-var now = moment().hour(); //get current date and time
-var x = document.getElementsByClassName("time");
-var y = document.getElementsByClassName("form-control");
+var now = moment().hour(); 
+var timeEl = document.getElementsByClassName("time");
+var colorEl = document.getElementsByClassName("form-control");
 var toDo = $(".to-do");
 var save = $(".save");
 
-for (i=0; i<x.length; i++){
-    var scheduleHour = parseInt(x[i].innerHTML.split(":")[0]); //parses a string argument to an integer
-    if (scheduleHour > now){        //future
-        y[i].style.backgroundColor = "yellow";
-    }else if(scheduleHour === now){ //present
-        y[i].style.backgroundColor = "orange";
-    }else if(scheduleHour < now){   //past
-        y[i].style.backgroundColor = "silver";
+//Iterate througth the time and compare between schedule hour and current time
+//Display past, present, and future hours using different colors
+for (i = 0; i < timeEl.length; i++) {
+    var scheduleHour = parseInt(timeEl[i].innerHTML.split(":")[0]); 
+    if (scheduleHour > now){        
+        colorEl[i].style.backgroundColor = "yellow";
+    }else if(scheduleHour === now){
+        colorEl[i].style.backgroundColor = "orange";
+    }else if(scheduleHour < now){  
+        colorEl[i].style.backgroundColor = "silver";
     }
 };
 
+//Point to the save button and iterate through all save event
 for (i=0; i < save.length; i++){
     $(save[i]).on("click", saveEvent);
 }
 
+//Set up local storage
 function saveEvent(e){
     var selectedHour = toDo[e.currentTarget.dataset.id].id;
     var saveText = toDo[e.currentTarget.dataset.id].value;
@@ -38,6 +43,7 @@ function saveEvent(e){
     getToDos();
 }
 
+//Get items from local storage
 function getToDos(){
     var addWork = JSON.parse(localStorage.getItem("addWork"));
     addWork.forEach(function(task){
