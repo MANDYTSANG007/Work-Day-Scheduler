@@ -2,7 +2,7 @@ $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
 var now = moment().hour(); //get current date and time
 var x = document.getElementsByClassName("time");
-var y = document.getElementsByClassName("form-control")
+var y = document.getElementsByClassName("form-control");
 var toDo = $(".to-do");
 var save = $(".save");
 
@@ -13,12 +13,12 @@ for (i=0; i<x.length; i++){
     }else if(scheduleHour === now){ //present
         y[i].style.backgroundColor = "orange";
     }else if(scheduleHour < now){   //past
-        y[i].style.backgroundColor = "grey";
+        y[i].style.backgroundColor = "silver";
     }
 };
 
 for (i=0; i < save.length; i++){
-    $(save[i]).on("click", saveEvent)
+    $(save[i]).on("click", saveEvent);
 }
 
 function saveEvent(e){
@@ -26,24 +26,22 @@ function saveEvent(e){
     var saveText = toDo[e.currentTarget.dataset.id].value;
     var result = { time: selectedHour, text: saveText};
 
-    var savedResults = JSON.parse(window.localStorage.getItem("addWork"));
+    let savedResults = JSON.parse(localStorage.getItem("addWork"));
     if (savedResults){
         savedResults.push(result);
-        window.localStorage.setItem("addWork", JSON.stringify(savedResults))
+        localStorage.setItem("addWork", JSON.stringify(savedResults))
     } else {
         savedResults = [];
         savedResults.push(result);
-        window.localStorage.setItem("addWork", JSON.stringify(savedResults))
+        localStorage.setItem("addWork", JSON.stringify(savedResults));
     }
-    console.log(window.localStorage.getItem("addWork"));
     getToDos();
 }
 
 function getToDos(){
-    var addWork = JSON.parse(window.localStorage.getItem("addWork"));
+    var addWork = JSON.parse(localStorage.getItem("addWork"));
     addWork.forEach(function(task){
-        $(`#${task.time}`).text(task.text);
+        document.getElementById(task.time).value = task.text;
     })
 }
 getToDos();
-
