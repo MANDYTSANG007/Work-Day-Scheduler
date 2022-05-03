@@ -18,7 +18,7 @@ The Work Day Scheduler displays the current day at the top of the calendar. When
 
 ## Deployed Link
 
-* [Deployed Link to Live Site](https://mandytsang007.github.io/Work-Day-Scheduler/)
+* [Link to Live Site](https://mandytsang007.github.io/Work-Day-Scheduler/)
 * [Link to Github](https://github.com/MANDYTSANG007/Work-Day-Scheduler)
 
 ## Design Layout
