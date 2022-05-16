@@ -9,7 +9,7 @@ The Work Day Scheduler displays the current day at the top of the calendar. When
 
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-* [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [w3schools](https://www.w3schools.com/js/default.asp)
 * [Moment.js](https://momentjs.com/docs/)
 * [jQuery User Interface](https://jqueryui.com)
