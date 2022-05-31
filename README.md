@@ -2,7 +2,7 @@
 This Work Day Scheduler is modified using HTML, CSS, and JavaScript. The application features are powered by jQuery incorporate with the Moment.js library for working with date and time.  
 
 ## Getting Started
-The Work Day Scheduler displays the current day at the top of the calendar. When users scroll down the page, all the time blocks are presented with standard business hours from 9:00am to 17:00pm. Each timeblock is color coded to indicate the past, present, or future event. When users click into a timeblock, they can enter an event by typing inside the event text box. Towards the end of each timeblock, a save button is provided for users to save the event in local storage. When users refresh the page, the saved events remain in display. 
+The Work Day Scheduler displays the current day at the top of the calendar. When users scroll down the page, all the time blocks are presented with standard business hours from 9:00am to 17:00pm. Each timeblock is color coded to indicate the past, present, or future event. When users click into a timeblock, they can enter an event by typing inside the event text box. Towards the end of each timeblock, users can save the event in local storage by clicking the save button. When users refresh the page, the saved events remain in display. 
 
 
 ## Built With
