@@ -29,9 +29,8 @@ The Work Day Scheduler displays the current day at the top of the calendar. When
 
 **Mandy Tsang** 
 
-- [Portfolio](https://mandytsang007.github.io/new-portfolio/)
+- [Portfolio](https://mandytsang007.github.io/mt-portfolio/)
 - [Github](https://github.com/MANDYTSANG007)
-- [LinkedIn](https://www.linkedin.com/in/man-tsang-64308b22a/)
 
 
 ## License
